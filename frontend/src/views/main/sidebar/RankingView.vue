@@ -2,13 +2,16 @@
 <div style="margin-left: 20%; margin-right: 10%;">
   <div>
     <h2 class="headLine2 my-5">지원자 순위표</h2>
-    <span v-if="rankGroupNo !== groupNo">이전 면접의 순위입니다</span>
-    <input type="button" value="지원자 세부 점수 다운로드" @click="download(rankGroupNo)" style="background-color: palegoldenrod;">
+    <div class="download">
+      <input class="download" type="button" value="다운로드" @click="download(groupNo)" style="background-color: palegoldenrod;">
+      <div class="text txt1">지원자들의 문항별 점수표입니다.</div>
+    </div>
   </div>
+  <br>
   <div class="d-flex flex-col justify-content-center align-items-center">
-    <div style="width:80%; overflow: scroll; background-color: #fff; height: 80vh">
+    <div style="width:60vh; background-color: #fff; height: 80vh; border: 1px solid #111;">
       <table class="table">
-        <thead style="background-color: #30475e; color: #fff">
+        <thead style="background-color: #f5f5f5; color: #111">
           <tr>
             <th scope="col">순위</th>
             <th scope="col">이름</th>
@@ -50,7 +53,7 @@
       ...mapActions(['fetchGrades','download']),
       goScoreDetail(email, groupNo, applicantNo){
         this.$router.push({ name: 'applicantScore', params: {applicantEmail: email, groupNo: groupNo, applicantNo: applicantNo } })
-      }
+      },
     },
     created() {
       //this.fetchGrades(this.groupNo)
@@ -62,5 +65,13 @@
 <style scoped>
   th {
     text-align: center;
+  }
+
+  .text{
+    color: #f5f5f5;
+  }
+
+  .download:hover .text {
+    color: #999999;
   }
 </style>

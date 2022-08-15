@@ -49,6 +49,8 @@ export default {
     saveResumes: () => HOST + INTERVIEW + 'resume/' + 'save/',
     saveEval: () => HOST + SCORE + 'eval/' + 'save/',
     saveRaters: () => HOST + INTERVIEW + 'raterAll/',
+    saveRater: () => HOST + INTERVIEW + 'raterOne/',
+    roomApplicants: () => HOST + INTERVIEW + APPLICANT + '/room',
 
     deleteApplicants: () => HOST + INTERVIEW + APPLICANT + 'delete/',
     applicants: () => HOST + INTERVIEW + APPLICANT + 'group/',
@@ -87,6 +89,9 @@ export default {
 
     //해당유저가 생성시킨 면접이 있는지 조회
     readGroup: (userNo) => HOST + ADMIN + "group/" + `${userNo}`,
+
+    // 면접방 디테일
+    roomDetail: (roomNo) => HOST + ADMIN + "roomDetail" + `${roomNo}`
 
   },
 

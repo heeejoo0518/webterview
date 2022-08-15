@@ -47,7 +47,7 @@ export default {
 .comment-input {
   /* border: none; */
   display: block;
-  width: 350px;
+  width: 700px;
   height: 35px;
 
   border: 1px solid #e3e7eb;

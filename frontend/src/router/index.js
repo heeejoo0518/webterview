@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // views
-// import MainView from "../views/main/MainView.vue";
+import MainView from "../views/main/MainView.vue";
 import HomeView from "../views/login/HomeView.vue";
 import SignupView from "../views/user/SignupView.vue";
 import ProfileView from "../views/main/sidebar/ProfileView.vue";
@@ -33,13 +33,13 @@ import InterviewView from "../views/interview/InterviewView.vue";
 import EntryPageView from "../views/interview/EntryPageView.vue";
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "main",
-  //   component: MainView,
-  // },
   {
     path: "/",
+    name: "main",
+    component: MainView,
+  },
+  {
+    path: "/login",
     name: "home",
     component: HomeView,
   },

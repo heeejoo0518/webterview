@@ -47,6 +47,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: Pretendard-Regular;
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -56,16 +63,15 @@
     margin: 0px; 
     padding: 0px; 
     box-sizing: border-box;
+    font-family: Pretendard-Regular, sans-serif;
 }
 
 body, html {
     height: 100%;
-    font-family: Poppins-Regular, sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-    font-family: Poppins-Regular;
     font-size: 14px;
     line-height: 1.7;
     color: #666666;
@@ -91,7 +97,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-    font-family: Poppins-Regular;
     font-size: 14px;
     line-height: 1.7;
     color: #666666;
@@ -158,21 +163,18 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
   font-size: 13px;
   line-height: 1.5;
   color: #999999;
 }
 
 .txt2 {
-  font-family: Noto Sans KR;
   font-size: 14px;
   line-height: 1.5;
   color: rgb(43, 48, 59);
 }
 
 .txt3 {
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 26px;
   line-height: 1.5;
   color: #111;
@@ -180,7 +182,6 @@ iframe {
 
 .headLine {
   font-size: 32px;
-  font-family: Montserrat-Bold;
   color: rgb(43, 48, 59);
   font-weight: 600;
 }
@@ -203,7 +204,6 @@ iframe {
 
 .jalnan{
   font-size: 32px;
-  font-family: Jalnan;
   color: rgb(43, 48, 59);
   font-weight: 700;
 }
@@ -311,7 +311,6 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: Poppins-Bold;
   font-size: 24px;
   color: #333333;
   line-height: 1.2;
@@ -332,7 +331,6 @@ iframe {
 }
 
 .input100 {
-  font-family: Poppins-Medium;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
@@ -346,7 +344,6 @@ iframe {
 }
 
 .inputNew {
-  font-family: Poppins-Medium;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
@@ -438,7 +435,6 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -562,7 +558,6 @@ iframe {
   right: 8px;
   pointer-events: none;
 
-  font-family: Poppins-Medium;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;
@@ -579,7 +574,6 @@ iframe {
 
 .alert-validate::after {
   content: "\f06a";
-  font-family: FontAwesome;
   display: block;
   position: absolute;
   color: #c80000;

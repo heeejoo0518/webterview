@@ -55,7 +55,7 @@ export default {
           console.log('success fetch notice, boardList')
           console.log(res.data)
           commit('SET_NOTICES', res.data.noticeList)
-          commit('SET_BOARDS', res.data.boardList.content)
+          commit('SET_BOARDS', res.data.boardList)
         })
         .catch(err => 
             console.error(err))

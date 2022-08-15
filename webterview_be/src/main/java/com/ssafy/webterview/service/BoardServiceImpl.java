@@ -28,6 +28,7 @@ public class BoardServiceImpl implements BoardService {
 	public BoardServiceImpl(BoardRepository boardRepository, CommentRepository commentRepository, UserRepository userRepository, DEConverter converter) {
 		this.boardRepository = boardRepository;
 		this.commentRepository = commentRepository;
+		this.userRepository = userRepository;
 		this.converter = converter;
 	}
 

@@ -66,7 +66,7 @@ export default {
     ...mapActions(["deleteRoom", "fetchRoomDetail"]),
     fetchRoomDetail(roomNo) {
       axios({
-        // url: drf.applicants.applicants(),
+        // url: drf.admins.roomDetail(roomNo),
         url: "/admin" + "/roomDetail/" + roomNo,
         method: "get",
         headers: {
@@ -83,7 +83,7 @@ export default {
     },
     fetchApplicantDetail(roomNo) {
       axios({
-        // url: drf.applicants.applicants(),
+        // url: drf.applicants.roomApplicants(),
         url: "/interview" + "/applicant" + "/room",
         method: "get",
         headers: {

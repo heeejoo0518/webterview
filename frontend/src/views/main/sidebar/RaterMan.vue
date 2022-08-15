@@ -38,7 +38,7 @@
                     <div style="margin-top: 15px; justify-content: space-between;">
                     <button type="submit" class="btn btn-primary mx-2 uploadFile" style="float:left;">업로드</button>
                     <button type="button" class="btn btn-danger mx-2 deleteFile" @click="removeRaters(userNo)">삭제</button>
-                    <button type="button" class="btn btn-success mx-2 addFile" @click="wantUpload" style="float:right;">개별 추가</button>
+                    <button type="button" class="btn btn-success mx-2 addFile" @click="isModalViewed = true" style="float:right;">개별 추가</button>
                     </div>
                 </div>
             </form>
@@ -69,6 +69,52 @@
                 </div>
                 <button class="btn btn-primary mx-2 uploadFile" type="submit">개별 업로드</button>
             </form>
+            <!-- 개별 추가 모달 -->
+            <div id="modal" v-if="isModalViewed">
+                <div id="overlay" class="jumbotron vertical-center" @click="isModalViewed = false"/>
+                    <div id="modal-card">
+                        <!-- <div style="text-align: left">
+                            <div style="font-size: x-large"><b>면접을 종료하시겠습니까?</b></div>
+                            <div style="color: darkgrey">퇴장 후에는 재입장이 불가능합니다.</div>
+                        </div> -->
+                        <form @submit.prevent="uploadRater(credentials)" style="width: 60vh; margin-top:30px;">
+                            <div class="form-group row">
+                                <label for="RaterName" class="col-4 col-form-label">이름: </label>
+                                <input v-model="credentials.raterName" class="form-control inputNew col-8" id="RaterName" type="text" placeholder="면접관 이름을 입력하세요..." required>
+                            </div>
+                            <div class="form-group row">
+                                <label for="RaterEmail" class="col-4 col-form-label">이메일: </label>
+                                <input v-model="credentials.raterEmail" class="form-control inputNew col-8" id="RaterEmail" type="email" placeholder="이메일을 입력하세요..." required>
+                            </div>
+                            <div class="form-group row">
+                                <label for="RaterPhone" class="col-4 col-form-label">전화번호: </label>
+                                <input v-model="credentials.raterPhone" class="form-control inputNew col-8" id="RaterPhone" type="tel" placeholder="010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+                            </div>
+                            <div class="form-group row">
+                                <label for="RoomNo" class="col-4 col-form-label">방번호(있는 방번호 입력해야)</label>
+                                <input v-model="credentials.roomNo" class="form-control inputNew col-8" id="RoomNo" type="text" placeholder="방번호를 입력하세요..." required>
+                            </div>
+                            <!-- <div>
+                                <label for="">면접자 번호</label>
+                                <input v-model="credentials.raterNo" type="text" placeholder="면접자 번호">
+                            </div> -->
+                            <div class="form-group row">
+                                <label for="userNo" class="col-4 col-form-label">관리자 번호: </label>
+                                <input v-model="credentials.userNo" class="form-control inputNew col-8" id="userNo" type="text" placeholder="관리자 번호" required>
+                            </div>
+                            <button class="btn btn-primary mx-2 uploadFile" type="submit">개별 업로드</button>
+                        </form>
+                        <br />
+                        <div style="display: inline-block; float: right">
+                            <button type="button" @click="isModalViewed = false" class="btn btn-modal" style="background-color: white; color: black; border-color: darkgrey">
+                              취소
+                            </button>
+                            <button @click="uploadRater(credentials)" class="btn btn-modal" style="background-color: #f05454; color: white">
+                              추가
+                            </button>
+                        </div>
+                </div>
+            </div>
       </div>
     </div>
 </div>
@@ -84,6 +130,7 @@ export default {
     name: 'RaterManView',
     data() {
       return {
+        isModalViewed: false,
         isWantUpload: false,
         file: "",
         // groupNo: "270",
@@ -141,6 +188,7 @@ export default {
       uploadRater(credentials) {
         console.log('One Rater upload')
         axios({
+            // url: drf.applicants.saveRater(),
             url: '/interview/raterOne',
             method: 'post',
             data: credentials, 
@@ -210,5 +258,45 @@ export default {
 
     .list-group{
         border-radius:15px;
+    }
+
+    /* Modal */
+    #modal,
+    #overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9997;
+    }
+    #overlay {
+    opacity: 0.5;
+    background-color: black;
+    }
+    #modal-card {
+    position: relative;
+    max-width: 50%;
+    margin: auto;
+    margin-top: 200px;
+    padding: 3%;
+    background-color: white;
+    z-index: 9998;
+    opacity: 1;
+    border-radius: 0.5rem;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    }
+
+    .btn-modal {
+    z-index: 9999;
+    margin: 0 10px;
+    }
+
+    .btn-modal:hover {
+    letter-spacing: 0px;
+    transform: scale(1.2);
+    cursor: pointer;
     }
 </style>

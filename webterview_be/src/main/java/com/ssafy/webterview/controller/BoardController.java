@@ -69,8 +69,16 @@ public class BoardController {
 			BoardDto boardDto = boardService.detailBoard(boardNo);
 			resultMap.put("board",boardDto);
 			resultMap.put("userName", boardDto.getUserName());
+
+			if(boardDto.getUserRole().equals("1")){ // 운영자면
+				resultMap.put("userName", "운영자");
+			}
+			else if(boardDto.getUserRole().equals("2")){
+				resultMap.put("userName", boardDto.getUserName());
+			}
 			resultMap.put("message",SUCCESS);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			resultMap.put("message",FAIL);
 		}
 		return new ResponseEntity<>(resultMap, HttpStatus.OK);

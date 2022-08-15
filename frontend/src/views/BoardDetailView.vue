@@ -3,76 +3,49 @@
     <div class="container-login100 shadow-lg">
       <div class="wrap-login100" style="margin-left: 20%; margin-right: 10%;">
         <!-- <div class="headLine2 mb-2">{{ board }}</div> -->
-
         <div class="board-wrap" style="width: 100%">
+          <div class="d-flex justify-content-end">
+            <button class="login100-form-btn button-list mx-2" style="width: 12vh; background-color: #3c90e2; margin-right: 0;" @click="goBoards()">목록</button>
+          </div>
+          <br>
           <div class="detail-head ty02" style="text-align: left;">
             <div class="line-set">
-                  <span v-if="board.boardType == 1" class="text-group">[공지]</span>
-                  <span v-if="board.boardType == 2" class="text-group">[질문]</span>
+              <div class="d-flex">
+                <span v-if="board.boardType == 1" class="text-group">[공지]</span>
+                <span v-if="board.boardType == 2" class="text-group">[질문]</span>
                 <span class="title headLine2">{{ board.boardTitle }}</span>
+                <div class="d-flex">
+                  <button type="button" class="modify-button mx-1" @click="goBoardEdit"> 수정</button>
+                  <button type="button" class="delete-button mx-1" @click="deleteBoard(boardNo)">삭제</button>
+                </div>
+              </div>
             </div>
               <div class="status tal">
+                <div class="d-flex">
                   <div class="manager">작성자{{ board.userNo }}</div>
+                  <!-- <div class="d-flex">
+                    <button type="button" class="modify-button mx-1" @click="goBoardEdit"> 수정</button>
+                    <button type="button" class="delete-button mx-1" @click="deleteBoard(boardNo)">삭제</button>
+                  </div> -->
+                </div>
               </div>
               <span class="date"> 
-                <div>등록 시간: {{ changeDate(board.boardRegdate) }} </div>
-                최근 수정: {{ changeDate(board.boardUpdate) }}
+                <div>
+                  <div>등록 시간: {{ changeDate(board.boardRegdate) }} </div>
+                  <div>최근 수정: {{ changeDate(board.boardUpdate) }} </div>
+                </div>
               </span>
           </div>
-          <div class="datail-content mb20 headLine2" style="text-align: left; font-size: 16px;">{{ board.boardContent }}</div>
+          <div class="datail-content mb20 headLine2" style="line-height: 2; text-align: left; font-size: 16px; min-height: 300px; letter-spacing: 2px; word-spacing: 2px;">{{ board.boardContent }}</div>
         </div>
+        <br>
 
-        <!-- <dl class="row"> -->
-
-        <!-- <div class="form-group row">
-          <label class="col-lg-4 col-form-label">제목 </label>
-          <div class="col-lg-6">
-            <div class="inputNew d-flex flex-col align-item-center justify-content-center" >
-              <p style="color: black;">{{ board.boardTitle }}</p>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- <div class="form-group row">
-          <label class="col-lg-4 col-form-label">내용</label>
-          <div class="col-lg-6">
-            <div class="inputNew d-flex flex-col align-item-center justify-content-center" >
-              <p style="color: black;">{{ board.boardContent }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-lg-4 col-form-label">작성자 번호</label>
-          <div class="col-lg-6">
-            <div class="inputNew d-flex flex-col align-item-center justify-content-center" >
-              <p style="color: black;">{{board.userNo}}</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-lg-4 col-form-label">작성 날짜</label>
-          <div class="col-lg-6">
-            <div class="inputNew d-flex flex-col align-item-center justify-content-center" >
-              <p style="color: black;">{{board.boardRegdate}}</p>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- </dl> -->
-
-        <div style="width: 100%">
+        <div v-if="board.boardType == 2" style="width: 100%">
           <!-- Comment UI -->
           <comment-list :boardNo="board.boardNo"></comment-list>
         </div>
-
-         <div class="d-flex justify-content-center">
-          <button class="login100-form-btn button-edit mx-2" style="width: 12vh;" @click="goBoardEdit">수정</button>
-          <button class="login100-form-btn button-delete mx-2" style="width: 12vh;" @click="deleteBoard(boardNo)">삭제</button>
-          <button class="login100-form-btn button-list mx-2" style="width: 12vh; background-color: #3c90e2;" @click="goBoards()">목록</button>
-          <!-- <router-link class="return my-2" :to="{ name: 'boards' }" ><div style="height: 25px; width: 30px; background-color: #3c90e2; color: #fff; border-radius: 15%; margin: auto;">목록</div></router-link> -->
-        </div>
+        <br>
+         
       </div>
     </div>
   </div>
@@ -129,6 +102,32 @@
   }
   .button-delete {
     background-color: crimson;
+  }
+
+  .modify-button {
+    display: inline-block;
+    /* border: 1px solid #afb8c0; */
+    background: #fff;
+    color: #4f5a66;
+    font-weight: 500;
+    text-align: center;
+    height: 30px;
+    min-width: 30px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .delete-button {
+    display: inline-block;
+    /* border: 1px solid #afb8c0; */
+    background: #fff;
+    color: #4f5a66;
+    font-weight: 500;
+    text-align: center;
+    height: 30px;
+    min-width: 30px;
+    font-size: 12px;
+    line-height: 1.4;
   }
 </style>
 

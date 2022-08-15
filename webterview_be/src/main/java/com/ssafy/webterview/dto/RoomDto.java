@@ -19,4 +19,6 @@ public class RoomDto implements Serializable {
 	private String roomCode;
 	@ApiModelProperty(value = "방이 속한 그룹 번호")
 	private int groupNo;
+	@ApiModelProperty(value = "방 인덱스")
+	private int groupIdx;
 }

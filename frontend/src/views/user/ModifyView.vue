@@ -4,10 +4,10 @@
       <div class="wrap-login100" style="margin-left: 20%; margin-right: 10%;">
         <div class="head mb-4">회원정보 수정</div>
         <form @submit.prevent="modify(credentials)" @reset="onReset">
-          <dl class="row">
+          <dl class="row" style="text-align: left; padding-left: 15%;">
 
             <div class="form-group row">
-              <label class="col-lg-4 col-form-label" for="val-username">Username <span class="text-danger">*</span></label>
+              <label class="col-lg-4 col-form-label" for="val-username">이름 <span class="text-danger">*</span></label>
               <div class="col-lg-6">
                 <div class="inputNew d-flex flex-col align-item-center justify-content-center" >
                   <input v-model="credentials.userName" type="text"  class="form-control inputNew" id="val-username" name="val-username" placeholder="Enter a username.." required>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="form-group row">
-            <label class="col-lg-4 col-form-label">UserDept</label>
+            <label class="col-lg-4 col-form-label">소속 </label>
             <div class="col-lg-6">
               <div class="inputNew d-flex flex-col align-item-center justify-content-center" >
                 <p style="color: black;">{{ credentials.userDept }}</p>
@@ -35,7 +35,7 @@
           </div> -->
 
             <div class="form-group row">
-            <label class="col-lg-4 col-form-label">UserEmail</label>
+            <label class="col-lg-4 col-form-label">이메일</label>
             <div class="col-lg-6">
               <div class="inputNew d-flex flex-col align-item-center justify-content-center" >
                 <p style="color: black;">{{ credentials.userEmail}}</p>
@@ -44,7 +44,7 @@
           </div>
 
             <div class="form-group row">
-              <label class="col-lg-4 col-form-label" for="pw">Password <span class="text-danger">*</span></label>
+              <label class="col-lg-4 col-form-label" for="pw">비밀번호 <span class="text-danger">*</span></label>
               <div class="col-lg-6">
                 <div class="inputNew d-flex flex-col align-item-center justify-content-center" >
                   <input v-model="credentials.userPw" type="password"  class="form-control inputNew" id="pw" name="val-username" placeholder="Enter New password" required>
@@ -54,7 +54,7 @@
             </div>
 
             <div class="form-group row">
-              <label class="col-lg-4 col-form-label" for="phone">Phone (kr) <span class="text-danger">*</span></label>
+              <label class="col-lg-4 col-form-label" for="phone">전화번호 (kr) <span class="text-danger">*</span></label>
               <div class="col-lg-6">
                 <div class="inputNew d-flex flex-col align-item-center justify-content-center" >
                   <input v-model="credentials.userPhone" type="text"  class="form-control inputNew" id="phone" name="val-username" placeholder="Enter a phone Number" required>
@@ -130,9 +130,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .return{
   text-decoration: none;
   color: crimson;
+}
+
+p {
+  padding-left: 20px;
 }
 </style>

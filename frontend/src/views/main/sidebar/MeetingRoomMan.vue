@@ -33,13 +33,12 @@
     <!-- 면접(그룹) 만들거나 들어갔을때 열러 있는 면접장(ROOM) 목록들  -->
     <div v-if="groupNo ||openGroup">
       <div class="buttons d-flex">
-        <button class="w-btn-add w-btn-green-add" @click="addSection"><i class="fa-solid fa-plus"></i></button>
-        <!-- <button class="w-btn-add w-btn-green-add" @click="minusSection">-</button> -->
         <div v-if="groupNo ||openGroup">
           <form @submit.prevent="finishInterview(groupNo); ok(); ">
             <button class="w-btn-delete w-btn-green-delete">면접종료</button>
           </form>
         </div>
+        <button class="w-btn-add w-btn-green-add" @click="addSection"><i class="fa-solid fa-plus"></i></button>
       </div>
      <!-- 방 리스트 -->
       <ul class="infinite-list" style="overflow:auto auto;padding-left: 20%; text-align: left;">
@@ -256,7 +255,9 @@ button {
 
 /* 세부세션 추가 버튼 */
 .w-btn-add {
-  position: relative;
+  position: fixed;
+  /* bottom: 0; */
+  right: 5%; 
   border: none;
   display: inline-block;
   padding: 8px 16px;
@@ -287,9 +288,7 @@ button {
 }
 /* 면접종료 버튼 */
 .w-btn-delete {
-  position: fixed;
-  /* bottom: 0; */
-  right: 5%; 
+  position: relative;
   border: none;
   display: inline-block;
   padding: 8px 16px;

@@ -4,9 +4,10 @@
       <div class="wrap-login100" style="margin-left: 20%; margin-right: 10%;">
         <input class="writeBtn dohyeon" type="button" value="글쓰기" @click="boardwrite"/>
 
-        <div class="headLine2 mb-2">공지 밎 Q&A</div>
+        <div class="headLine2 mb-2">QnA</div>
+        <br>
         <table class="noto table" style="font-size: 16px">
-          <thead style="background-color: #30475e; color: #fff">
+          <thead style="background-color: #f5f5f5; color: #111">
             <tr>
               <th >번호</th>
               <th>제목</th>
@@ -19,37 +20,20 @@
               <td>{{ notice.boardTitle }}</td>
               <td>{{ changeDate(notice.boardRegdate) }}</td>
             </tr>
-            <tr v-for="board in boards" @click="goBoardDetail(board.boardNo)" :key="board.boardNo" >
+            <tr v-for="board in boards.content" @click="goBoardDetail(board.boardNo)" :key="board.boardNo" >
               <td>{{ board.boardNo }}</td>
-              <td >{{ board.boardTitle }}</td>
+              <td >{{ board.boardTitle }} <small>({{ board.commentCnt}})</small></td>
               <td>{{ changeDate(board.boardRegdate) }}</td>
             </tr>
           </tbody>
         </table>
-
+        {{ boards.content }}
         <nav aria-label="...">
           <ul class="pagination pagination-sm">
-            <li class="page-item"><a class="page-link" href="#" @click="goPage(0)" >1</a></li>
-            <li class="page-item"><a class="page-link" href="#" @click="goPage(1)" >2</a></li>
-            <li class="page-item"><a class="page-link" href="#" @click="goPage(2)" >3</a></li>
+            <li v-for="page in pages" class="page-item" :id="page" :key="page"><a class="page-link" href="#" @click="goPage(page), changeActive(page)" >{{page+1}}</a></li>
           </ul>
         </nav>
-        <!-- <ul class="board-ul">
-          <li v-for="board in boards" :key="board.boardNo">
-            <div class="board-list d-flex align-items-center justify-content-center">
-              <div class="my-1 board">
-                <router-link :to="{ name: 'board', params: {boardNo: board.boardNo} }">
-                  <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">{{ board.boardTitle }}</h5>
-                    <small>{{ board.boardRegDate }}</small>
-                  </div>
-                  <p class="mb-1">{{ board.boardContent }}</p>
-                  <small>댓글: {{ board.commentCnt }}</small>
-                </router-link>
-              </div>
-            </div>
-          </li>
-        </ul> -->
+
       </div>
     </div>
   </div>
@@ -64,7 +48,6 @@
     name: 'BoardList',
     data() {
       return {
-
         params: {
           page: 0,
           size: 5,
@@ -74,7 +57,14 @@
       }
     },
     computed: {
-      ...mapGetters(['boards','notices', 'profile', 'userNo'])
+      ...mapGetters(['boards','notices', 'profile', 'userNo']),
+      pages() {
+        const lst = []
+        for(let i=0; i<this.boards.totalPages; i++) {
+          lst.push(i)
+        }
+        return lst;
+      }
     },
     methods: {
       ...mapActions(['fetchBoards']),
@@ -92,11 +82,21 @@
         const moment = require('moment-timezone')
         const time = moment(date).tz("Asia/Seoul").format('YYYY-MM-DD');
         return time
+      },
+      changeActive(page) {
+        for(let i=0; i<this.boards.totalPages; i++) {
+          if (i == page) {
+            document.getElementById(page).classList.add('active')
+          } else {
+            document.getElementById(i).classList.remove('active')
+          }
+        }
       }
     },
-    created() {
+    async created() {
       this.params.userNo = this.userNo
-      this.fetchBoards(this.params)
+      await this.fetchBoards(this.params)
+      document.getElementById("0").classList.add('active')
     },
   }
 </script>

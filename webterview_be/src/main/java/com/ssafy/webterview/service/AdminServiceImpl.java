@@ -116,18 +116,18 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	@Transactional
 	public void createRoom(int num, int groupNo) throws Exception {
+		int count = (int)roomRepository.countByGroupGroupNo(groupNo);
 		List<Room> roomList = new ArrayList<>();
 
 		for(int i=0;i<num;i++){
 			Room room = new Room();
 			String str = codeGenerator.makeCode(5);
-			//long code = roomRepository.countByGroupGroupNo(groupNo) + (i+1);
-			//str += String.valueOf(code);
-//			String code = encrypt(str);
 
 			room.setRoomCode(str);
 			Group group = groupRepository.getReferenceById(groupNo);
 			room.setGroup(group);
+
+			room.setRoomIdx(++count);
 
 			roomList.add(room);
 			roomRepository.save(roomList.get(i));
