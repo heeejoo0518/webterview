@@ -1,5 +1,16 @@
 # WEBTERVIEW
 
+## 목차
+
+1. [프로젝트 소개](#프로젝트-소개)
+2. [팀 소개](#팀-소개)
+3. [프로젝트 기술 스택](#프로젝트-기술-스택)
+4. [프로젝트 상세 기능 설명](#프로젝트-상세-기능-설명)
+5. [실제 화면 gif](#실제화면-gif)
+
+</br>
+
+
 ## 프로젝트 소개
 
 면접 진행 시 평가표와 카메라 등으로 시선을 계속 움직여야 하는 불편함을 해소하기 위한 웹 프로젝트
@@ -162,4 +173,83 @@
 - 엑셀 파일에 작성된 이메일로 면접장 URL을 받을 수 있음
 - 해당 URL을 누르면 휴대폰을 통한 본인인증 진행
 - 본인인증 성공 시 면접장 입장하여, 면접 참여 가능    
-- 면접 후 해당 면접 영상 다운로드   
+- 면접 후 해당 면접 영상 다운로드 
+
+</br>
+
+
+## 실제화면 gif
+
+### 1. 회원가입
+
+ <img src="https://i.ibb.co/mv2C6wf/3.gif" alt="3" border="0">
+
+### 2. 로그인
+
+<img src="https://i.ibb.co/Zmw0cH7/4.gif" alt="4" border="0">
+
+### 3. 면접장 생성
+
+<img src="https://i.ibb.co/6rjN9Ls/5.gif" alt="5" border="0">
+
+### 4. 면접에 대한 정보 exel파일 업로드
+
+- 면접관 정보, 지원자 정보, 면접질문, 점수표 등 업로드 하여 면접관 화면에 띄워줄 수 있음
+
+<img src="https://i.ibb.co/02tLMn2/6-1.gif" alt="6-1" border="0">
+
+- 면접관, 지원자, 면접질문 정보를 수정 가능
+
+<img src="https://i.ibb.co/0M9cX27/6-2.gif" alt="6-2" border="0">
+
+
+
+<img src="https://i.ibb.co/D4GmxbX/6-3.gif" alt="6-3" border="0">
+
+<img src="https://i.ibb.co/ByXQrBP/6-4.gif" alt="6-4" border="0">
+
+- 면접관, 지원자의 email로 url전송
+
+<img src="https://i.ibb.co/vQTTGBQ/6-5.gif" alt="6-5" border="0">
+
+- url을 눌러 본인인증 진행
+
+<img src="https://i.ibb.co/d4kvxZ0/image.gif" alt="image" border="0">
+
+- 지원자의 상세 정보 확인 가능
+
+<img src="https://i.ibb.co/GcF6gRB/7-2.gif" alt="7-2" border="0">
+
+- q&a를 통해 관리자에게 질문 가능
+
+<img src="https://i.ibb.co/5s3vQ4t/9.gif" alt="9" border="0">
+
+<img src="https://i.ibb.co/cbVPFzy/9.gif" alt="9" border="0">
+
+### 5.면접관 화면
+
+- 고객들에게 편리하게 자유자제로 컴포넌트를 이동 , 확대 축소, 삭제 생성 가능
+
+<img src="https://i.ibb.co/wp5Bztc/13.gif" alt="13" border="0">
+
+### 6. 지원자화면
+
+- 입장 전 본인의 음성과 화면을 체크 할 수 있음.
+
+<img src="https://i.ibb.co/2Fqt5D6/16.gif" alt="16" border="0">
+
+
+
+### 7. 관리자 화면
+
+- 실시간으로 지원자의 점수를 확인 가능하며, 점수표를 exel로 다운로드 가능
+
+<img src="https://i.ibb.co/6wHH6tS/14.gif" alt="14" border="0">
+
+- 관리자는 지원자의 상세정보, 점수, 특이사항을 확인할 수 있으며, 지원자의 영상도 다운로드 받아 확인 가능.
+
+<img src="https://i.ibb.co/LxyZ138/15.gif" alt="15" border="0">
+
+### 8.로그아웃
+
+<img src="https://i.ibb.co/zZGDHWv/12.gif" alt="12" border="0">
