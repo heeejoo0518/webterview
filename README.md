@@ -100,8 +100,7 @@
 
 ### ERD
 
-<img src="https://i.ibb.co/W0Hq3C5/erd.png" alt="erd" border="0">
-
+<img src="https://i.ibb.co/2txyH1Q/erd.png" alt="erd" border="0">
 
 
 
